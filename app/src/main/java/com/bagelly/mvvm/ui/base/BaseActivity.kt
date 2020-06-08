@@ -33,7 +33,7 @@ abstract class BaseActivity :AppCompatActivity(){
         setContentView(layoutRes())
     }
 
-    private fun layoutRes(): Int =0
+    open fun layoutRes(): Int =0
 
     fun showProgressDialog(@StringRes message:Int){
         if (!this::progressDiglogFragment.isInitialized){
