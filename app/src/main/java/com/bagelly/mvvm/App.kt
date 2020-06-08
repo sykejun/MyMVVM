@@ -28,13 +28,15 @@ class App :Application() {
     override fun onCreate() {
         super.onCreate()
         instance=this
-        if(isMainProcess(this)){
-            init()
-        }
 
         initLogger()
         //初始化腾讯MMKV.initialize(this)
         MMKV.initialize(this)
+        if(isMainProcess(this)){
+            init()
+        }
+
+
     }
 
     private fun initLogger() {
