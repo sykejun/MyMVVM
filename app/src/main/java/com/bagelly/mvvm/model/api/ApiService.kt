@@ -30,4 +30,8 @@ interface ApiService{
     suspend fun collect(@Path("id") id: Int): ApiResult<Any?>
     @POST("lg/uncollect_originId/{id}/json")
     suspend fun uncollect(@Path("id") id: Int): ApiResult<Any?>
+
+    @GET("/article/listproject/{page}/json")
+    suspend fun getProjectList(@Path("page") page: Int): ApiResult<Paginaton<Article>>
+
 }

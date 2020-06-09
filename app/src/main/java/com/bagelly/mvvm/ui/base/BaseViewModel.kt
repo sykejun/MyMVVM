@@ -33,7 +33,7 @@ typealias Cancel =suspend (e: Exception) -> Unit
 
 open class BaseViewModel : ViewModel() {
     protected  val userRepository by lazy { UserRepository() }
-    protected   val loginStateInvlid:MutableLiveData<Boolean> = MutableLiveData()
+       val loginStateInvlid:MutableLiveData<Boolean> = MutableLiveData()
 
     /**
      * 创建并执行协程
