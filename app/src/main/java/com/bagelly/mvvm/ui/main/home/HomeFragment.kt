@@ -1,6 +1,13 @@
 package com.bagelly.mvvm.ui.main.home
 
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import com.bagelly.mvvm.R
+import com.bagelly.mvvm.common.ScrollToTop
 import com.bagelly.mvvm.ui.base.BaseFragment
+import com.bagelly.mvvm.ui.main.home.popular.PopularFragment
+import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  *
@@ -13,9 +20,30 @@ import com.bagelly.mvvm.ui.base.BaseFragment
  * @CreateDate: 2020/6/8 上午11:12
  */
 
-class HomeFragment:BaseFragment(){
+class HomeFragment:BaseFragment(),ScrollToTop{
+    private  lateinit var fragments:List<Fragment>
+    private var currentOffset=0
+
 
     companion object{
         fun newInstance()=HomeFragment()
+    }
+
+    override fun layoutRes(): Int = R.layout.fragment_home
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        fragments= listOf(
+            PopularFragment.newInstance()
+
+        )
+    }
+
+    override fun scrollToTop() {
+        if (!this::fragments.isInitialized) return
+        val currentFragment=fragments[viewpager.currentItem]
+        if (currentFragment is ScrollToTop&&currentFragment.isVisible){
+            currentFragment.scrollToTop()
+        }
     }
 }

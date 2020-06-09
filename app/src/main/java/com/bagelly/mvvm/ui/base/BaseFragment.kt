@@ -26,5 +26,5 @@ open class BaseFragment :Fragment(){
         return inflater.inflate(layoutRes(),container,false)
     }
 
-    private fun layoutRes()=0
+    open fun layoutRes()=0
 }

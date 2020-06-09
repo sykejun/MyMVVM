@@ -35,12 +35,12 @@ abstract  class BaseVmFragment <VM:BaseViewModel>:BaseFragment() {
         }
     }
 
-    private fun initData() {
+     fun initData() {
         // Override if need
     }
 
-    private fun observer() {
-        mViewModel.loginStateInvlid.observe(this, Observer {
+    open fun observer() {
+        mViewModel.loginStateInvlid.observe(viewLifecycleOwner, Observer {
             if (it){
                 Bus.post(USER_LOGIN_STATE_CHANGED,false)
                 // TODO: 2020/6/5  loglin
@@ -49,12 +49,24 @@ abstract  class BaseVmFragment <VM:BaseViewModel>:BaseFragment() {
         })
 
     }
+    override fun onResume() {
+        super.onResume()
+        // 实现懒加载
+        if (!lazyLoaded) {
+            lazyLoadData()
+            lazyLoaded = true
+        }
+    }
+
+    open  fun lazyLoadData() {
+
+    }
 
     private fun initViewModel() {
         mViewModel=ViewModelProvider(this).get(viewModelClass())
     }
     abstract fun viewModelClass(): Class<VM>
-    private fun initView() {
+    open fun initView() {
         //override if need
     }
 

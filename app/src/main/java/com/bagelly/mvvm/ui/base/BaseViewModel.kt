@@ -11,9 +11,7 @@ import com.bagelly.mvvm.ui.common.UserRepository
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
 import com.google.gson.JsonParseException
-import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import java.lang.Exception
 import java.net.ConnectException
 import java.net.SocketException
@@ -34,8 +32,8 @@ typealias  Error = suspend (e: Exception) -> Unit
 typealias Cancel =suspend (e: Exception) -> Unit
 
 open class BaseViewModel : ViewModel() {
-    private val userRepository by lazy { UserRepository() }
-    val loginStateInvlid:MutableLiveData<Boolean> = MutableLiveData()
+    protected  val userRepository by lazy { UserRepository() }
+    protected   val loginStateInvlid:MutableLiveData<Boolean> = MutableLiveData()
 
     /**
      * 创建并执行协程
@@ -61,7 +59,14 @@ open class BaseViewModel : ViewModel() {
             }
         }
     }
-
+    /**
+     * 创建并执行协程
+     * @param block 协程中执行
+     * @return Deferred<T>
+     */
+    protected fun <T> async(block: Block<T>): Deferred<T> {
+        return viewModelScope.async { block.invoke() }
+    }
     /**
      * 统一处理错误的异常
      */
