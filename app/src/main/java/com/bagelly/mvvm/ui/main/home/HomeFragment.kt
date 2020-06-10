@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import com.bagelly.mvvm.R
 import com.bagelly.mvvm.common.ScrollToTop
 import com.bagelly.mvvm.ui.base.BaseFragment
+import com.bagelly.mvvm.ui.main.home.latest.LatestFragment
+import com.bagelly.mvvm.ui.main.home.plaza.PlazaFragment
 import com.bagelly.mvvm.ui.main.home.popular.PopularFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -34,8 +36,15 @@ class HomeFragment:BaseFragment(),ScrollToTop{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fragments= listOf(
-            PopularFragment.newInstance()
+            PopularFragment.newInstance(),
+            LatestFragment.newInstance(),
+            PlazaFragment.newInstance()
+        )
 
+        val titles= listOf<String>(
+            getString(R.string.popular_articles),
+            getString(R.string.latest_project),
+            getString(R.string.plaza)
         )
     }
 

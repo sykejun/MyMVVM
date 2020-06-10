@@ -1,7 +1,7 @@
 package com.bagelly.mvvm.model.api
 
 import com.bagelly.mvvm.model.bean.Article
-import com.bagelly.mvvm.model.bean.Paginaton
+import com.bagelly.mvvm.model.bean.Pagination
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -24,7 +24,7 @@ interface ApiService{
     @GET("/article/top/json")
     suspend fun getTopArticleList(): ApiResult<List<Article>>
     @GET("/article/list/{page}/json")
-    suspend fun getArticleList(@Path("page") page:Int):ApiResult<Paginaton<Article>>
+    suspend fun getArticleList(@Path("page") page:Int):ApiResult<Pagination<Article>>
 
     @POST("lg/collect/{id}/json")
     suspend fun collect(@Path("id") id: Int): ApiResult<Any?>
@@ -32,6 +32,9 @@ interface ApiService{
     suspend fun uncollect(@Path("id") id: Int): ApiResult<Any?>
 
     @GET("/article/listproject/{page}/json")
-    suspend fun getProjectList(@Path("page") page: Int): ApiResult<Paginaton<Article>>
+    suspend fun getProjectList(@Path("page") page: Int): ApiResult<Pagination<Article>>
+
+    @GET("/user_article/list/{page}/json")
+    suspend fun getUserArticleList(@Path("page") page: Int): ApiResult<Pagination<Article>>
 
 }

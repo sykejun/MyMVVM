@@ -11,7 +11,7 @@ package com.bagelly.mvvm.model.bean
  * @CreateDate: 2020/6/8 下午3:02
  */
 
-data class Paginaton<T>(
+data class Pagination<T>(
     val offset: Int,
     val size: Int,
     val total: Int,
