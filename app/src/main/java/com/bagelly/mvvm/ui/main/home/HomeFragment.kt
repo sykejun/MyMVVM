@@ -5,10 +5,13 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.bagelly.mvvm.R
 import com.bagelly.mvvm.common.ScrollToTop
+import com.bagelly.mvvm.common.SimpleFragmentPageAdapter
 import com.bagelly.mvvm.ui.base.BaseFragment
+import com.bagelly.mvvm.ui.main.MainActivity
 import com.bagelly.mvvm.ui.main.home.latest.LatestFragment
 import com.bagelly.mvvm.ui.main.home.plaza.PlazaFragment
 import com.bagelly.mvvm.ui.main.home.popular.PopularFragment
+import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -46,6 +49,21 @@ class HomeFragment:BaseFragment(),ScrollToTop{
             getString(R.string.latest_project),
             getString(R.string.plaza)
         )
+
+        viewpager.adapter=SimpleFragmentPageAdapter(childFragmentManager,fragments,titles)
+        viewpager.offscreenPageLimit=fragments.size
+        tabLayout.setupWithViewPager(viewpager)
+
+        appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { _, offset ->
+            if (activity is MainActivity && this.currentOffset != offset) {
+                (activity as MainActivity).animateBottomNavigationView(offset > currentOffset)
+                currentOffset = offset
+            }
+        })
+
+        llSearch.setOnClickListener {
+            // TODO: 2020/6/10 去搜索页面
+        }
     }
 
     override fun scrollToTop() {
