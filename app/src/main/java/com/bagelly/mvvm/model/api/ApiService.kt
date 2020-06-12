@@ -1,10 +1,12 @@
 package com.bagelly.mvvm.model.api
 
 import com.bagelly.mvvm.model.bean.Article
+import com.bagelly.mvvm.model.bean.Category
 import com.bagelly.mvvm.model.bean.Pagination
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 /**
  *
@@ -37,4 +39,14 @@ interface ApiService{
     @GET("/user_article/list/{page}/json")
     suspend fun getUserArticleList(@Path("page") page: Int): ApiResult<Pagination<Article>>
 
+    @GET("project/tree/json")
+    suspend fun getProjectCategories(): ApiResult<MutableList<Category>>
+
+    @GET("project/list/{page}/json")
+    suspend fun getProjectListByCid(@Path("page") page: Int, @Query("cid") cid: Int): ApiResult<Pagination<Article>>
+    @GET("wxarticle/chapters/json")
+    suspend fun getWechatCategories(): ApiResult<MutableList<Category>>
+
+    @GET("wxarticle/list/{id}/{page}/json")
+    suspend fun getWechatArticleList(@Path("page") page: Int, @Path("id") id: Int): ApiResult<Pagination<Article>>
 }

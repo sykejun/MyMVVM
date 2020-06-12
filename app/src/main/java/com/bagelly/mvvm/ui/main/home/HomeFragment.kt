@@ -11,6 +11,8 @@ import com.bagelly.mvvm.ui.main.MainActivity
 import com.bagelly.mvvm.ui.main.home.latest.LatestFragment
 import com.bagelly.mvvm.ui.main.home.plaza.PlazaFragment
 import com.bagelly.mvvm.ui.main.home.popular.PopularFragment
+import com.bagelly.mvvm.ui.main.home.project.ProjectFragment
+import com.bagelly.mvvm.ui.main.home.wechat.WechatFragment
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -41,13 +43,18 @@ class HomeFragment:BaseFragment(),ScrollToTop{
         fragments= listOf(
             PopularFragment.newInstance(),
             LatestFragment.newInstance(),
-            PlazaFragment.newInstance()
+            PlazaFragment.newInstance(),
+            ProjectFragment.newInstance(),
+            WechatFragment.newInstance()
         )
 
         val titles= listOf<String>(
             getString(R.string.popular_articles),
             getString(R.string.latest_project),
-            getString(R.string.plaza)
+            getString(R.string.plaza),
+            getString(R.string.project_category),
+            getString(R.string.wechat_public)
+
         )
 
         viewpager.adapter=SimpleFragmentPageAdapter(childFragmentManager,fragments,titles)

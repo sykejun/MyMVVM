@@ -1,5 +1,4 @@
 package com.bagelly.mvvm.ui.main.home.plaza
-
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import com.bagelly.mvvm.R
