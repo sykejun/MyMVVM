@@ -1,7 +1,6 @@
 package com.bagelly.mvvm.ui.main.home.project
 
 import com.bagelly.mvvm.model.api.RetrofitClient
-import java.util.*
 
 /**
  *

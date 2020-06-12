@@ -8,7 +8,6 @@ import com.bagelly.mvvm.ui.common.CollectRepository
 import com.bagelly.mvvm.ui.common.loadmore.LoadMoreStatus
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_COLLECT_UPDATED
-import java.util.*
 
 /**
  *
