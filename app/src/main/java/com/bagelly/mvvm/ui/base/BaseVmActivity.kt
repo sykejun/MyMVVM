@@ -3,6 +3,7 @@ package com.bagelly.mvvm.ui.base
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bagelly.mvvm.ui.login.LoginActivity
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
 import com.bagelly.mvvm.util.core.ActivityManger
@@ -70,8 +71,7 @@ abstract  class BaseVmActivity <VM :BaseViewModel> :BaseActivity(){
             then?.invoke()
             true
         } else {
-//            ActivityManger.start()
-             TODO()
+          ActivityManger.start(LoginActivity::class.java)
             false
         }
     }

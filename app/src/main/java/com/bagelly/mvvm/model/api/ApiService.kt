@@ -3,10 +3,8 @@ package com.bagelly.mvvm.model.api
 import com.bagelly.mvvm.model.bean.Article
 import com.bagelly.mvvm.model.bean.Category
 import com.bagelly.mvvm.model.bean.Pagination
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import com.bagelly.mvvm.model.bean.UserInfo
+import retrofit2.http.*
 
 /**
  *
@@ -49,4 +47,12 @@ interface ApiService{
 
     @GET("wxarticle/list/{id}/{page}/json")
     suspend fun getWechatArticleList(@Path("page") page: Int, @Path("id") id: Int): ApiResult<Pagination<Article>>
+
+    @FormUrlEncoded
+    @POST("user/login")
+    suspend fun login(@Field("username") username: String, @Field("password") password: String): ApiResult<UserInfo>
+
+    @FormUrlEncoded
+    @POST("user/register")
+    suspend fun register(@Field("username") username: String, @Field("password") password: String, @Field("repassword") repassword: String): ApiResult<UserInfo>
 }

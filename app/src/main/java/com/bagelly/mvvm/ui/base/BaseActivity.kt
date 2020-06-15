@@ -47,4 +47,11 @@ abstract class BaseActivity :AppCompatActivity(){
             progressDiglogFragment.dismiss()
         }
     }
+
+
+    fun hideProgressDialog() {
+        if (this::progressDiglogFragment.isInitialized && progressDiglogFragment.isVisible) {
+            progressDiglogFragment.dismiss()
+        }
+    }
 }

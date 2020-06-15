@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bagelly.mvvm.ui.login.LoginActivity
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
+import com.bagelly.mvvm.util.core.ActivityManger.start
 
 /**
  *
@@ -80,9 +82,7 @@ abstract  class BaseVmFragment <VM:BaseViewModel>:BaseFragment() {
             then?.invoke()
             true
         } else {
-            // TODO: 2020/6/5  loglin
-//                ActivityManger.start()
-//            ActivityManager.start(LoginActivity::class.java)
+          start(LoginActivity::class.java)
             false
         }
     }
