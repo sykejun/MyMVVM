@@ -36,11 +36,11 @@ abstract  class BaseVmActivity <VM :BaseViewModel> :BaseActivity(){
         }
     }
 
-    private fun initData() {
+    open fun initData() {
 
     }
 
-    private fun observer() {
+    open fun observer() {
       //登录失效
         mViewModel.loginStateInvlid.observe(this, Observer {
             if (it){
@@ -57,7 +57,7 @@ abstract  class BaseVmActivity <VM :BaseViewModel> :BaseActivity(){
 
     abstract fun viewModelClass(): Class<VM>
 
-    private fun initView() {
+      open fun initView() {
        //override if need
     }
 

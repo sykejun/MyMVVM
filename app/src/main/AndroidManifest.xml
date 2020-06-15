@@ -33,6 +33,11 @@
             android:name=".ui.main.MainActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
             android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

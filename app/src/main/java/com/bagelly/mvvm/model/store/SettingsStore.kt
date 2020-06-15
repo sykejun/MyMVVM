@@ -13,7 +13,7 @@ import com.tencent.mmkv.MMKV
  * @CreateDate: 2020/6/5 上午10:32
  */
 
-object SettingStore{
+object SettingsStore{
     val mmkv = MMKV.defaultMMKV()//使用MMKV来存储数据
     private  const val DEFAULT_WEB_TEXT_ZOOM=100
     private const val KEY_WEB_TEXT_ZOOM="KEY_WEB_TEXT_ZOOM"

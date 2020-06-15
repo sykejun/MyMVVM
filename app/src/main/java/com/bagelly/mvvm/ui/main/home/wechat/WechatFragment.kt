@@ -8,11 +8,13 @@ import com.bagelly.mvvm.common.ScrollToTop
 import com.bagelly.mvvm.common.loadmore.CommonLoadMoreView
 import com.bagelly.mvvm.ui.base.BaseVmFragment
 import com.bagelly.mvvm.ui.common.loadmore.LoadMoreStatus
+import com.bagelly.mvvm.ui.detail.DetailActivity
 import com.bagelly.mvvm.ui.main.home.ArticleAdapter
 import com.bagelly.mvvm.ui.main.home.CategoryAdapter
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_COLLECT_UPDATED
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
+import com.bagelly.mvvm.util.core.ActivityManger
 import kotlinx.android.synthetic.main.fragment_popular.swipeRefreshLayout
 import kotlinx.android.synthetic.main.fragment_project.*
 import kotlinx.android.synthetic.main.include_reload.view.*
@@ -61,10 +63,13 @@ class WechatFragment:BaseVmFragment<WechatViewModel> (),ScrollToTop{
             },recyclerView)
             setOnItemClickListener { _, _, position ->
                 val article =mAdapter.data[position]
-                // TODO: 2020/6/12 跳转到详情页
+                ActivityManger.start(
+                    DetailActivity::class.java,
+                    mapOf(DetailActivity.PARAM_ARTICLE to article)
+                )
             }
 
-            setOnItemChildClickListener { adapter, view, position ->
+            setOnItemChildClickListener { _, view, position ->
               val article = mAdapter.data[position]
                 if (view.id==R.id.iv_collect&&checkLogin()){
                     view.isSelected=!view.isSelected

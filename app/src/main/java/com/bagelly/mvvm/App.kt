@@ -2,7 +2,7 @@ package com.bagelly.mvvm
 
 import android.app.Application
 import com.bagelly.mvvm.common.ActivityLifecycleCallbackAdapter
-import com.bagelly.mvvm.model.store.SettingStore
+import com.bagelly.mvvm.model.store.SettingsStore
 import com.bagelly.mvvm.util.core.ActivityManger
 import com.bagelly.mvvm.util.isMainProcess
 import com.bagelly.mvvm.util.setNightMode
@@ -56,7 +56,7 @@ class App :Application() {
     }
 
     private fun setDayNightMode() {
-        setNightMode(SettingStore.getNightMode())
+        setNightMode(SettingsStore.getNightMode())
 
     }
 
