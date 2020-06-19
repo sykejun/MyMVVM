@@ -1,9 +1,6 @@
 package com.bagelly.mvvm.model.api
 
-import com.bagelly.mvvm.model.bean.Article
-import com.bagelly.mvvm.model.bean.Category
-import com.bagelly.mvvm.model.bean.Pagination
-import com.bagelly.mvvm.model.bean.UserInfo
+import com.bagelly.mvvm.model.bean.*
 import retrofit2.http.*
 
 /**
@@ -55,4 +52,8 @@ interface ApiService{
     @FormUrlEncoded
     @POST("user/register")
     suspend fun register(@Field("username") username: String, @Field("password") password: String, @Field("repassword") repassword: String): ApiResult<UserInfo>
+
+    @GET("hotkey/json")
+    suspend fun getHotWords(): ApiResult<List<HotWord>>
+
 }
