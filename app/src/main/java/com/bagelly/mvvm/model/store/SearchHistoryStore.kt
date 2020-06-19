@@ -31,7 +31,7 @@ object SearchHistoryStore {
         mmkv.encode(MK_SEARCH_HISTORY,listStr)
     }
 
-    private fun getSearchHistory(): MutableList<String> {
+     fun getSearchHistory(): MutableList<String> {
         val listStr= mmkv.decodeString(MK_SEARCH_HISTORY,"")
         return if (listStr.isEmpty()){
             mutableListOf()

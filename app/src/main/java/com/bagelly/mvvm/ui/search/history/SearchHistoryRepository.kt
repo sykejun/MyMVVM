@@ -19,4 +19,10 @@ class SearchHistoryRepository {
 
     fun saveSearchHistory(searchWords:String)= SearchHistoryStore.saveSearchHistory(searchWords)
 
+    fun deleteSearchHistory(searchWords: String){
+        SearchHistoryStore.deleteSearchHistory(searchWords)
+    }
+
+    fun getSearchHistory()=SearchHistoryStore.getSearchHistory()
+
 }

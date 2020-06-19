@@ -37,7 +37,7 @@ abstract  class BaseVmFragment <VM:BaseViewModel>:BaseFragment() {
         }
     }
 
-     fun initData() {
+      open fun initData() {
         // Override if need
     }
 

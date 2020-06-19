@@ -1,7 +1,6 @@
 package com.bagelly.mvvm.ui.search
 
 import android.os.Bundle
-import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.core.view.isGone
 import androidx.core.widget.addTextChangedListener
@@ -11,7 +10,6 @@ import com.bagelly.mvvm.ui.base.BaseActivity
 import com.bagelly.mvvm.ui.search.history.SearchHistoryFragment
 import com.bagelly.mvvm.ui.search.result.SearchResultFragment
 import com.bagelly.mvvm.util.core.ActivityManger
-import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_detail.ivBack
 import kotlinx.android.synthetic.main.activity_search.*
 
