@@ -12,6 +12,8 @@ import com.bagelly.mvvm.ui.main.home.plaza.PlazaFragment
 import com.bagelly.mvvm.ui.main.home.popular.PopularFragment
 import com.bagelly.mvvm.ui.main.home.project.ProjectFragment
 import com.bagelly.mvvm.ui.main.home.wechat.WechatFragment
+import com.bagelly.mvvm.ui.search.SearchActivity
+import com.bagelly.mvvm.util.core.ActivityManger
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -68,7 +70,7 @@ class HomeFragment:BaseFragment(),ScrollToTop{
         })
 
         llSearch.setOnClickListener {
-            // TODO: 2020/6/10 去搜索页面
+            ActivityManger.start(SearchActivity::class.java)
         }
     }
 

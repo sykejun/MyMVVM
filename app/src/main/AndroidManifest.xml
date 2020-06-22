@@ -50,6 +50,12 @@
             android:name=".ui.register.RegisterActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
             android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
+
     </application>
 
 </manifest>

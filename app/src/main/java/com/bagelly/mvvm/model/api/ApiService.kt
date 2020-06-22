@@ -60,4 +60,7 @@ interface ApiService{
     @POST("article/query/{page}/json")
     suspend fun search(@Field("k") keywords: String, @Path("page") page: Int): ApiResult<Pagination<Article>>
 
+    @GET("tree/json")
+    suspend fun getArticleCategories(): ApiResult<MutableList<Category>>
+
 }
