@@ -62,5 +62,7 @@ interface ApiService{
 
     @GET("tree/json")
     suspend fun getArticleCategories(): ApiResult<MutableList<Category>>
+    @GET("article/list/{page}/json")
+    suspend fun getArticleListByCid(@Path("page") page: Int, @Query("cid") cid: Int): ApiResult<Pagination<Article>>
 
 }

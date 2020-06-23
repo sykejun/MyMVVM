@@ -6,7 +6,6 @@ import com.bagelly.mvvm.model.bean.Category
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import kotlinx.android.synthetic.main.item_system_category.view.*
-
 /**
  *
  * @ProjectName: MyMVVM
@@ -17,10 +16,7 @@ import kotlinx.android.synthetic.main.item_system_category.view.*
  * QQ:774169396
  * @CreateDate: 2020/6/22 下午4:12
  */
-class SystemCateoryAdapter(
-    layoutResId:Int= R.layout.item_system_category,
-    categoryList:List<Category>,
-    var checked:Pair<Int,Int>
+class SystemCateoryAdapter(layoutResId:Int= R.layout.item_system_category, categoryList:List<Category>, var checked:Pair<Int,Int>
 ) :BaseQuickAdapter<Category,BaseViewHolder>(layoutResId,categoryList) {
     var onCheckedListener :((checked:Pair<Int,Int>) ->Unit)?=null
     override fun convert(helper: BaseViewHolder, item: Category) {

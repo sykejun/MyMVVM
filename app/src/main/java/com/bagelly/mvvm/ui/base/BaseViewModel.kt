@@ -67,6 +67,18 @@ open class BaseViewModel : ViewModel() {
     protected fun <T> async(block: Block<T>): Deferred<T> {
         return viewModelScope.async { block.invoke() }
     }
+
+
+    /**
+     * 取消协程
+     * @param job 协程job
+     */
+    protected fun cancelJob(job: Job?) {
+        if (job != null && job.isActive && !job.isCompleted && !job.isCancelled) {
+            job.cancel()
+        }
+    }
+
     /**
      * 统一处理错误的异常
      */

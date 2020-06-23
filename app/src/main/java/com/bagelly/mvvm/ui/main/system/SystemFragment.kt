@@ -12,12 +12,10 @@ import com.bagelly.mvvm.ui.main.MainActivity
 import com.bagelly.mvvm.ui.main.system.category.SystemCategoryFragment
 import com.bagelly.mvvm.ui.main.system.pager.SystemPagerFragment
 import com.google.android.material.appbar.AppBarLayout
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_system.*
 import kotlinx.android.synthetic.main.fragment_system.appBarLayout
 import kotlinx.android.synthetic.main.fragment_system.tabLayout
 import kotlinx.android.synthetic.main.include_reload.view.*
-
 /**
  *
  * @ProjectName: MyMVVM
@@ -64,7 +62,7 @@ class SystemFragment:BaseVmFragment<SystemViewModel>(),ScrollToTop{
             categories.observe(viewLifecycleOwner, Observer {
                 ivFilter.visibility= View.VISIBLE
                 tabLayout.visibility=View.VISIBLE
-                viewpager.visibility=View.VISIBLE
+                viewPager.visibility=View.VISIBLE
                 setup(it)
                 cateoryFragment=SystemCategoryFragment.newInstance(ArrayList(it))
             })
@@ -89,28 +87,27 @@ class SystemFragment:BaseVmFragment<SystemViewModel>(),ScrollToTop{
             titles.add(it.name)
             fragmments.add(SystemPagerFragment.newInstance(it.children))
         }
-        viewpager.adapter=SimpleFragmentPageAdapter(childFragmentManager,fragmments,titles)
-        viewpager.offscreenPageLimit=titles.size
+        viewPager.adapter=SimpleFragmentPageAdapter(childFragmentManager,fragmments,titles)
+        viewPager.offscreenPageLimit=titles.size
         tabLayout.setupWithViewPager(viewPager)
     }
 
     override fun scrollToTop() {
-        if (fragmments.isEmpty()||viewpager==null) return
-        fragmments[viewpager.currentItem].scrollToTop()
+        if (fragmments.isEmpty()||viewPager==null) return
+        fragmments[viewPager.currentItem].scrollToTop()
     }
 
     fun getCurrentChecked():Pair<Int,Int>{
-        if (fragmments.isEmpty()||viewpager==null) return 0 to 0
-        val first=viewpager.currentItem
-        val second=fragmments[viewpager.currentItem].checkedPosition
+        if (fragmments.isEmpty()||viewPager==null) return 0 to 0
+        val first=viewPager.currentItem
+        val second=fragmments[viewPager.currentItem].checkedPosition
         return first to second
     }
 
     fun check(position:Pair<Int,Int>){
-        if (fragmments.isEmpty()||viewpager==null) return
-        viewpager.currentItem=position.first
-        // TODO: 2020/6/22 点击事件没处理
-//      fragmments[position.first].check(position.second)
+        if (fragmments.isEmpty()||viewPager==null) return
+        viewPager.currentItem=position.first
+      fragmments[position.first].check(position.second)
     }
 
 
