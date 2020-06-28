@@ -64,5 +64,8 @@ interface ApiService{
     suspend fun getArticleCategories(): ApiResult<MutableList<Category>>
     @GET("article/list/{page}/json")
     suspend fun getArticleListByCid(@Path("page") page: Int, @Query("cid") cid: Int): ApiResult<Pagination<Article>>
+    @GET("banner/json") suspend fun getBanners(): ApiResult<List<Banner>>
 
+    @GET("friend/json")
+    suspend fun getFrequentlyWebsites(): ApiResult<List<Frequently>>
 }

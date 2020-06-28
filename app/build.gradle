@@ -73,7 +73,7 @@ dependencies {
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'com.orhanobut:logger:2.2.0'
-    implementation 'com.tencent:mmkv-static:1.1.1'
+    implementation 'com.tencent:mmkv-static:1.1.2'
 
 
 
