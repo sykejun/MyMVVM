@@ -68,4 +68,7 @@ interface ApiService{
 
     @GET("friend/json")
     suspend fun getFrequentlyWebsites(): ApiResult<List<Frequently>>
+
+    @GET("navi/json")
+    suspend fun getNavigations(): ApiResult<List<Navigation>>
 }
