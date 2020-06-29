@@ -50,6 +50,31 @@
             android:name=".ui.search.SearchActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
             android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.points.mine.MinePointsActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.points.rank.PointsRankActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.shared.SharedActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.collection.CollectionActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.history.HistoryActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
