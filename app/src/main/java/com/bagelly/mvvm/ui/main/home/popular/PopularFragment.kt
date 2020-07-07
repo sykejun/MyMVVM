@@ -12,7 +12,7 @@ import com.bagelly.mvvm.ui.main.home.ArticleAdapter
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_COLLECT_UPDATED
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import kotlinx.android.synthetic.main.fragment_popular.*
 import kotlinx.android.synthetic.main.include_reload.*
 
@@ -51,7 +51,7 @@ class PopularFragment : BaseVmFragment<PopularViewModel>(), ScrollToTop {
 
             setOnItemClickListener { _, _, position ->
                 val article = mAdapter.data[position]
-                ActivityManger.start(
+                ActivityManager.start(
                     DetailActivity::class.java,
                     mapOf(DetailActivity.PARAM_ARTICLE to article)
                 )

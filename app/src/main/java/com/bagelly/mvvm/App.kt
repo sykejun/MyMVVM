@@ -3,7 +3,7 @@ package com.bagelly.mvvm
 import android.app.Application
 import com.bagelly.mvvm.common.ActivityLifecycleCallbackAdapter
 import com.bagelly.mvvm.model.store.SettingsStore
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import com.bagelly.mvvm.util.isMainProcess
 import com.bagelly.mvvm.util.setNightMode
 import com.orhanobut.logger.AndroidLogAdapter
@@ -63,9 +63,9 @@ class App :Application() {
     private fun rigesterActivityCallbacks() {
         registerActivityLifecycleCallbacks(ActivityLifecycleCallbackAdapter(
             onActivityCreated = {activity, _ ->
-                ActivityManger.activites.add(activity)
+                ActivityManager.activites.add(activity)
             },onActivityDestroyed = {
-                activity -> ActivityManger.activites.remove(activity)
+                activity -> ActivityManager.activites.remove(activity)
             }
         ))
 

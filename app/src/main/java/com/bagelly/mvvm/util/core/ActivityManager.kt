@@ -15,7 +15,7 @@ import com.bagelly.mvvm.ext.putExtras
  * @CreateDate: 2020/6/5 上午10:00
  */
 
-object  ActivityManger{
+object  ActivityManager{
     val activites= mutableListOf<Activity>()
 
     /**

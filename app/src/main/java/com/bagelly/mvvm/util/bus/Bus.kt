@@ -1,6 +1,5 @@
 package com.bagelly.mvvm.util.bus
 
-import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import com.jeremyliao.liveeventbus.LiveEventBus

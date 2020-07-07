@@ -71,4 +71,23 @@ interface ApiService{
 
     @GET("navi/json")
     suspend fun getNavigations(): ApiResult<List<Navigation>>
+
+    @GET("lg/coin/userinfo/json")
+    suspend fun getPoints(): ApiResult<PointRank>
+
+    @GET("lg/coin/list/{page}/json")
+    suspend fun getPointsRecord(@Path("page") page: Int): ApiResult<Pagination<PointRecord>>
+
+    @GET("coin/rank/{page}/json")
+    suspend fun getPointsRank(@Path("page") page: Int): ApiResult<Pagination<PointRank>>
+
+    @GET("user/lg/private_articles/{page}/json")
+    suspend fun getSharedArticleList(@Path("page") page: Int): ApiResult<Shared>
+
+    @POST("lg/user_article/delete/{id}/json")
+    suspend fun deleteShare(@Path("id") id: Int): ApiResult<Any>
+
+    @GET("lg/collect/list/{page}/json")
+    suspend fun getCollectionList(@Path("page") page: Int): ApiResult<Pagination<Article>>
+
 }

@@ -12,7 +12,7 @@ import com.bagelly.mvvm.model.bean.Article
 import com.bagelly.mvvm.ui.base.BaseVmFragment
 import com.bagelly.mvvm.ui.detail.DetailActivity
 import com.bagelly.mvvm.ui.main.MainActivity
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import kotlinx.android.synthetic.main.fragment_navigation.*
 import kotlinx.android.synthetic.main.include_reload.view.*
 /**
@@ -49,7 +49,7 @@ class NavigationFragment:BaseVmFragment<NavigationViewModel>(),ScrollToTop{
             mAdapter=NavigationAdapter(R.layout.item_navigation).apply {
                 bindToRecyclerView(recyclerView)
                 onItemTagClickListener={
-                    ActivityManger.start(
+                    ActivityManager.start(
                         DetailActivity::class.java,
                         mapOf(DetailActivity.PARAM_ARTICLE to Article(title = it.title, link = it.link))
                     )

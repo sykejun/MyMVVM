@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bagelly.mvvm.ui.login.LoginActivity
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
-import com.bagelly.mvvm.util.core.ActivityManger.start
+import com.bagelly.mvvm.util.core.ActivityManager.start
 
 /**
  *

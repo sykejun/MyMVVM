@@ -16,7 +16,7 @@ import com.bagelly.mvvm.ui.settings.SettingActivity
 import com.bagelly.mvvm.ui.shared.SharedActivity
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import kotlinx.android.synthetic.main.fragment_mine.*
 /**
  *
@@ -48,19 +48,19 @@ class MineFragment:BaseVmFragment<MineViewModel>(){
 
         llMyPoints.setOnClickListener {
             checkLogin {
-                ActivityManger.start(MinePointsActivity::class.java)
+                ActivityManager.start(MinePointsActivity::class.java)
             }
         }
 
-        llPointsRank.setOnClickListener {  ActivityManger.start(PointsRankActivity::class.java) }
+        llPointsRank.setOnClickListener {  ActivityManager.start(PointsRankActivity::class.java) }
 
-        llMyShare.setOnClickListener { checkLogin{ ActivityManger.start(SharedActivity::class.java)} }
+        llMyShare.setOnClickListener { checkLogin{ ActivityManager.start(SharedActivity::class.java)} }
 
-        llMyCollect.setOnClickListener { checkLogin { ActivityManger.start(CollectionActivity::class.java)} }
-        llHistory.setOnClickListener {ActivityManger.start(HistoryActivity::class.java)  }
+        llMyCollect.setOnClickListener { checkLogin { ActivityManager.start(CollectionActivity::class.java)} }
+        llHistory.setOnClickListener {ActivityManager.start(HistoryActivity::class.java)  }
 
         llAboutAuthor.setOnClickListener {
-            ActivityManger.start(
+            ActivityManager.start(
                 DetailActivity::class.java,
                 mapOf(
                     PARAM_ARTICLE to Article(
@@ -71,9 +71,9 @@ class MineFragment:BaseVmFragment<MineViewModel>(){
             )
         }
 
-        llOpenSource.setOnClickListener {ActivityManger.start(OpenSourceActivity::class.java)  }
+        llOpenSource.setOnClickListener {ActivityManager.start(OpenSourceActivity::class.java)  }
 
-        llSetting.setOnClickListener {ActivityManger.start(SettingActivity::class.java)   }
+        llSetting.setOnClickListener {ActivityManager.start(SettingActivity::class.java)   }
     }
 
 

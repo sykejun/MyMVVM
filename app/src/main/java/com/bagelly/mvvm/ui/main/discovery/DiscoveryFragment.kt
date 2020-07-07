@@ -13,7 +13,7 @@ import com.bagelly.mvvm.ui.detail.DetailActivity.Companion.PARAM_ARTICLE
 import com.bagelly.mvvm.ui.main.MainActivity
 import com.bagelly.mvvm.ui.search.SearchActivity
 import com.bagelly.mvvm.ui.share.ShareActivity
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_discovery.*
@@ -41,8 +41,8 @@ class DiscoveryFragment:BaseVmFragment<DiscoveryViewModel>(),ScrollToTop{
     override fun viewModelClass()=DiscoveryViewModel::class.java
 
     override fun initView() {
-        ivAdd.setOnClickListener { checkLogin{ActivityManger.start(ShareActivity::class.java)} }
-        ivSearch.setOnClickListener { ActivityManger.start(SearchActivity::class.java) }
+        ivAdd.setOnClickListener { checkLogin{ActivityManager.start(ShareActivity::class.java)} }
+        ivSearch.setOnClickListener { ActivityManager.start(SearchActivity::class.java) }
         swipeRefreshLayout.run {
             setColorSchemeResources(R.color.textColorPrimary)
             setProgressBackgroundColorSchemeResource(R.color.bgColorPrimary)
@@ -97,7 +97,7 @@ class DiscoveryFragment:BaseVmFragment<DiscoveryViewModel>(),ScrollToTop{
                 tagFlowLayout.adapter=TagAdapter(it)
                 tagFlowLayout.setOnTagClickListener { view, position, parent ->
                     val frequently=it[position]
-                    ActivityManger.start(
+                    ActivityManager.start(
                         DetailActivity::class.java,
                         mapOf(
                             PARAM_ARTICLE to Article(
@@ -132,7 +132,7 @@ class DiscoveryFragment:BaseVmFragment<DiscoveryViewModel>(),ScrollToTop{
             start()
             setOnBannerListener {
                val banner=banners[it]
-                ActivityManger.start(
+                ActivityManager.start(
                     DetailActivity::class.java,
                     mapOf(PARAM_ARTICLE to Article(title = banner.title, link = banner.url))
                 )

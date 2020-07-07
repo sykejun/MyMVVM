@@ -1,7 +1,5 @@
 package com.bagelly.mvvm.model.api
 
-import android.net.sip.SipErrorCode
-
 /**
  *
  * @ProjectName: MyMVVM

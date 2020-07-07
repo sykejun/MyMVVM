@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import com.bagelly.mvvm.R
 import com.bagelly.mvvm.ui.base.BaseVmActivity
 import com.bagelly.mvvm.ui.login.LoginActivity
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import kotlinx.android.synthetic.main.activity_detail.ivBack
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -66,7 +66,7 @@ class RegisterActivity :BaseVmActivity<RegisterViewModel>(){
                 if (it) showProgressDialog(R.string.registerring) else hideProgressDialog()
             })
             registerResult.observe(this@RegisterActivity, Observer {
-                if (it) ActivityManger.finish(LoginActivity::class.java, RegisterActivity::class.java)
+                if (it) ActivityManager.finish(LoginActivity::class.java, RegisterActivity::class.java)
             })
 
         }

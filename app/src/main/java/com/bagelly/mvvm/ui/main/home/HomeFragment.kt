@@ -13,7 +13,7 @@ import com.bagelly.mvvm.ui.main.home.popular.PopularFragment
 import com.bagelly.mvvm.ui.main.home.project.ProjectFragment
 import com.bagelly.mvvm.ui.main.home.wechat.WechatFragment
 import com.bagelly.mvvm.ui.search.SearchActivity
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import com.google.android.material.appbar.AppBarLayout
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -70,7 +70,7 @@ class HomeFragment:BaseFragment(),ScrollToTop{
         })
 
         llSearch.setOnClickListener {
-            ActivityManger.start(SearchActivity::class.java)
+            ActivityManager.start(SearchActivity::class.java)
         }
     }
 

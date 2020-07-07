@@ -16,7 +16,7 @@ import com.bagelly.mvvm.ui.main.home.SimpleArticleAdapter
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_COLLECT_UPDATED
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
-import com.bagelly.mvvm.util.core.ActivityManger.start
+import com.bagelly.mvvm.util.core.ActivityManager.start
 import kotlinx.android.synthetic.main.fragment_search_result.swipeRefreshLayout
 import kotlinx.android.synthetic.main.fragment_wechat.*
 import kotlinx.android.synthetic.main.include_reload.*

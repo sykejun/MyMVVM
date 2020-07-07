@@ -9,7 +9,7 @@ import com.bagelly.mvvm.ext.hideSoftInput
 import com.bagelly.mvvm.ui.base.BaseActivity
 import com.bagelly.mvvm.ui.search.history.SearchHistoryFragment
 import com.bagelly.mvvm.ui.search.result.SearchResultFragment
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import kotlinx.android.synthetic.main.activity_detail.ivBack
 import kotlinx.android.synthetic.main.activity_search.*
 
@@ -49,7 +49,7 @@ class SearchActivity:BaseActivity() {
                     .hide(resultFragment)
                     .commit()
             }else{
-                ActivityManger.finish(SearchActivity::class.java)
+                ActivityManager.finish(SearchActivity::class.java)
             }
         }
             ivDone.setOnClickListener{

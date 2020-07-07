@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import com.bagelly.mvvm.R
 import com.bagelly.mvvm.ui.base.BaseVmActivity
 import com.bagelly.mvvm.ui.register.RegisterActivity
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -25,7 +25,7 @@ class LoginActivity :BaseVmActivity<LoginViewModel>() {
     override fun initView() {
         ivClose.setOnClickListener { finish() }
         tvGoRegister.setOnClickListener {
-            ActivityManger.start(RegisterActivity::class.java)
+            ActivityManager.start(RegisterActivity::class.java)
         }
 
         tietPassword.setOnEditorActionListener { _, actionId, _ ->
@@ -60,7 +60,7 @@ class LoginActivity :BaseVmActivity<LoginViewModel>() {
 
             loginResult.observe(this@LoginActivity, Observer {
                 if (it){
-                    ActivityManger.finish(LoginActivity::class.java)
+                    ActivityManager.finish(LoginActivity::class.java)
                 }
             })
         }

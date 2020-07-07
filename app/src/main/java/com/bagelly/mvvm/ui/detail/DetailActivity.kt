@@ -19,7 +19,7 @@ import com.bagelly.mvvm.ui.base.BaseVmActivity
 import com.bagelly.mvvm.util.bus.Bus
 import com.bagelly.mvvm.util.bus.USER_COLLECT_UPDATED
 import com.bagelly.mvvm.util.bus.USER_LOGIN_STATE_CHANGED
-import com.bagelly.mvvm.util.core.ActivityManger
+import com.bagelly.mvvm.util.core.ActivityManager
 import com.bagelly.mvvm.util.isNightMode
 import com.bagelly.mvvm.util.whiteHostList
 import com.just.agentweb.*
@@ -50,7 +50,7 @@ class DetailActivity:BaseVmActivity<DetailViewModel>() {
     override fun initView() {
         article=intent?.getParcelableExtra(PARAM_ARTICLE)?: return
         tvTitle.text=article.title.htmlToSpanned()
-        ivBack.setOnClickListener { ActivityManger.finish(DetailActivity::class.java) }
+        ivBack.setOnClickListener { ActivityManager.finish(DetailActivity::class.java) }
         ivMore.setOnClickListener { ActonFragment.newInstance(article).show(supportFragmentManager) }
 
         if (isNightMode(this)){
