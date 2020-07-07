@@ -1,4 +1,5 @@
 package com.bagelly.mvvm.ui.main.mine
+import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
@@ -42,7 +43,6 @@ class MineFragment:BaseVmFragment<MineViewModel>(){
     override fun initView() {
         clHeader.setOnClickListener {
             checkLogin{
-                // TODO: 2020/6/29 上传图像没做
                   }
         }
 

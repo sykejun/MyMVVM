@@ -28,3 +28,7 @@ fun Activity.setBrightness(brightness:Float){
     attribute.screenBrightness=brightness
     window.attributes=attribute
 }
+
+fun Activity.setNavigationBarColor(color:Int){
+    window.navigationBarColor=color
+}
