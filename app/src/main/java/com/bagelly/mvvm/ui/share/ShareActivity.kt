@@ -13,6 +13,7 @@ class ShareActivity : BaseVmActivity<ShareViewModel>() {
     override fun layoutRes() = R.layout.activity_share
 
     override fun initView() {
+
         ivBack.setOnClickListener { ActivityManager.finish(ShareActivity::class.java) }
         acetlink.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
