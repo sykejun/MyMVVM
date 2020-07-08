@@ -19,7 +19,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".ui.share.ShareActivity"></activity>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:screenOrientation="portrait"
@@ -82,6 +81,11 @@
 
         <activity
             android:name=".ui.settings.SettingActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.share.ShareActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
             android:launchMode="singleTask" />
     </application>

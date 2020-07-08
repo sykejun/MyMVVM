@@ -90,4 +90,8 @@ interface ApiService{
     @GET("lg/collect/list/{page}/json")
     suspend fun getCollectionList(@Path("page") page: Int): ApiResult<Pagination<Article>>
 
+    @FormUrlEncoded
+    @POST("lg/user_article/add/json")
+    suspend fun shareArticle(@Field("title") title: String, @Field("link") link: String): ApiResult<Any>
+
 }
