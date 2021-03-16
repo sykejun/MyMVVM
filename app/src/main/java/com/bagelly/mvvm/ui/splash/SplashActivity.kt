@@ -1,10 +1,13 @@
 package com.bagelly.mvvm.ui.splash
 
 import android.os.Bundle
+import android.os.Handler
 import com.bagelly.mvvm.R
 import com.bagelly.mvvm.ui.base.BaseActivity
 import com.bagelly.mvvm.ui.main.MainActivity
 import com.bagelly.mvvm.util.core.ActivityManager
+import com.orhanobut.logger.Logger
+import java.util.*
 
 /**
  *
@@ -25,5 +28,8 @@ class SplashActivity :BaseActivity(){
             ActivityManager.start(MainActivity::class.java)
             ActivityManager.finish(SplashActivity::class.java)
         },1000)
+
     }
+
+
 }

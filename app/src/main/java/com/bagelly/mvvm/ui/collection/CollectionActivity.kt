@@ -27,6 +27,7 @@ class CollectionActivity :BaseVmActivity<CollectionViewModel>(){
     override fun viewModelClass()=CollectionViewModel::class.java
     override fun layoutRes()= R.layout.activity_collection
     override fun initView() {
+
         mAdapter=ArticleAdapter().apply {
             setLoadMoreView(CommonLoadMoreView())
             bindToRecyclerView(recyclerView)

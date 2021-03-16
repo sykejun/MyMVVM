@@ -1,6 +1,7 @@
 package com.bagelly.mvvm.ui.base
 
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bagelly.mvvm.ui.login.LoginActivity
@@ -75,4 +76,7 @@ abstract  class BaseVmActivity <VM :BaseViewModel> :BaseActivity(){
             false
         }
     }
+
+
+
 }
