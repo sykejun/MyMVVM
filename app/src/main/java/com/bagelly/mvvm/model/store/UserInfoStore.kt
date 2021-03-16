@@ -16,30 +16,23 @@ import com.tencent.mmkv.MMKV
  */
 
 object UserInfoStore {
-    private  const val   KEY_USER_INFO="KEY_USER_INFO"
-    private  val mmkv by lazy{ MMKV.defaultMMKV() }
-    private  val gson by lazy { Gson() }
-
-    fun isLogin():Boolean{
-        val userInfoStr=   mmkv.decodeString(KEY_USER_INFO,"")
-        return userInfoStr.isNotEmpty()
-
+    private const val KEY_USER_INFO = "KEY_USER_INFO"
+    private val mmkv by lazy { MMKV.defaultMMKV() }
+    private val gson by lazy { Gson() }
+    fun isLogin() = mmkv.decodeString(KEY_USER_INFO, "").isNotEmpty()
+    fun setUserInfo(userInfo: UserInfo) {
+        mmkv.encode(KEY_USER_INFO, gson.toJson(userInfo))
     }
 
-    fun setUserInfo(userInfo: UserInfo){
-        mmkv.encode(KEY_USER_INFO,gson.toJson(userInfo))
+    fun getUserInfo(): UserInfo? {
+        val userInfo = mmkv.decodeString(KEY_USER_INFO, "")
+        return if (userInfo.isNotEmpty()) gson.fromJson(userInfo, UserInfo::class.java) else null
     }
 
-    fun getUserInfo():UserInfo?{
-     val userInfoStr=   mmkv.decodeString(KEY_USER_INFO,"")
-        return   if (userInfoStr.isNotEmpty()){
-            gson.fromJson(userInfoStr,UserInfo::class.java)
-        }else{
-            null
-        }
-    }
 
-    fun clearUserInfo(){
+    fun clearUserInfo() {
         mmkv.reKey(KEY_USER_INFO)
     }
+
+
 }
