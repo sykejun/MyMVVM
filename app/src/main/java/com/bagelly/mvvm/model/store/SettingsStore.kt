@@ -33,7 +33,7 @@ object SettingsStore{
     private const val KEY_NIGHT_MODE="KEY_NIGHT_MODE"
 
     fun setWebTextZoom(textZoom:Int)= mmkv.encode(KEY_NIGHT_MODE,textZoom)
-    fun getWebTextZoom()= mmkv.decodeInt(KEY_NIGHT_MODE, DEFAULT_WEB_TEXT_ZOOM)
+    fun getWebTextZoom()= mmkv.decodeInt(KEY_WEB_TEXT_ZOOM, DEFAULT_WEB_TEXT_ZOOM)
 
     fun setNightMode(nightMode:Boolean)= mmkv.encode(KEY_NIGHT_MODE,nightMode)
     fun getNightMode()= mmkv.decodeBool(KEY_NIGHT_MODE,false)

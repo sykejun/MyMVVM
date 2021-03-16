@@ -18,7 +18,9 @@ open class UserRepository {
     /**
      * 跟新个人信息
      */
-    fun updateUserInfo(usreInfo: UserInfo)=UserInfoStore.setUserInfo(usreInfo)
+    fun updateUserInfo(userInfo: UserInfo){
+        UserInfoStore.userInfo = userInfo
+    }
 
     /**
      * 是否登录的状态
@@ -28,7 +30,7 @@ open class UserRepository {
     /**
      * 获取个人信息
      */
-    fun getUserInfo()=UserInfoStore.getUserInfo()
+    fun getUserInfo()=UserInfoStore.userInfo
     /**
      * 清除所有状态
      */

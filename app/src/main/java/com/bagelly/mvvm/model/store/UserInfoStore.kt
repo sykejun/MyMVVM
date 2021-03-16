@@ -20,15 +20,24 @@ object UserInfoStore {
     private val mmkv by lazy { MMKV.defaultMMKV() }
     private val gson by lazy { Gson() }
     fun isLogin() = mmkv.decodeString(KEY_USER_INFO, "").isNotEmpty()
-    fun setUserInfo(userInfo: UserInfo) {
-        mmkv.encode(KEY_USER_INFO, gson.toJson(userInfo))
-    }
+//    fun setUserInfo(userInfo: UserInfo) {
+//        mmkv.encode(KEY_USER_INFO, gson.toJson(userInfo))
+//    }
+//
+//    fun getUserInfo(): UserInfo? {
+//        val userInfo = mmkv.decodeString(KEY_USER_INFO, "")
+//        return if (userInfo.isNotEmpty()) gson.fromJson(userInfo, UserInfo::class.java) else null
+//    }
 
-    fun getUserInfo(): UserInfo? {
-        val userInfo = mmkv.decodeString(KEY_USER_INFO, "")
-        return if (userInfo.isNotEmpty()) gson.fromJson(userInfo, UserInfo::class.java) else null
-    }
 
+    var userInfo: UserInfo?
+        get() {
+            val userInfo = mmkv.decodeString(KEY_USER_INFO, "")
+         return if (userInfo.isNotEmpty()) gson.fromJson(userInfo, UserInfo::class.java) else null
+        }
+        set(userInfo) {
+            mmkv.encode(KEY_USER_INFO, gson.toJson(userInfo))
+        }
 
     fun clearUserInfo() {
         mmkv.reKey(KEY_USER_INFO)
