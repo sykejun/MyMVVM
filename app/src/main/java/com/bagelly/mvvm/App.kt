@@ -7,6 +7,7 @@ import com.bagelly.mvvm.util.core.ActivityManager
 import com.bagelly.mvvm.util.isMainProcess
 import com.bagelly.mvvm.util.setNightMode
 import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.BuildConfig
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
 import com.tencent.mmkv.MMKV
@@ -28,6 +29,7 @@ class App :Application() {
     override fun onCreate() {
         super.onCreate()
         instance=this
+
 
         initLogger()
         //初始化腾讯MMKV.initialize(this)
